@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Order Successfully - Ruins of Versailles {% endblock %}
+{% block content %}
+
+<style>
+    .data{
+        width: 90%;        
+        height: 100vh;        
+        margin: 2.5rem auto 0;
+    }
+    .title h1{
+        font-family: "Bembo";
+    }
+    .title p{
+        margin: 2.5rem 0 ;
+        font-family: "EBGaramond-Regular";
+        letter-spacing: 1px;
+    }
+
+    p{
+        font-family: "EBGaramond-Regular";
+        letter-spacing: 1px;
+    }
+
+</style>
+<div class="data">
+    <div class="title">
+        <h1>Ruins of <br>Versailles</h1>
+        <p>Order Successfully</p>
+    </div>       
+    <p>
+        Your order was created. soon a payment simulation will deployment. <a href="{% url 'home' %}">Return home</a>
+    </p>
+</div>
+
+
+
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Checkout - Ruins of Versailles {% endblock %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/checkout.css' %}">   
+
+<section class="checkout">    
+    <div class="form-user">
+        <div class="title">
+            <h1>Ruins of <br>Versailles</h1>
+            <p>Shipping Address</p>
+        </div>        
+        <form action="">   
+            {{ form }}              
+        </form> 
+        <div class="submit">
+            <button onclick="checkout()">Shipping</button>
+        </div>           
+    </div>
+    <div class="summery">
+        <div class="items"></div>
+    </div>
+</section>
+
+<script src="{% static 'js/checkout.js' %}"></script>
+{% endblock %}
