@@ -4,19 +4,24 @@
 {% block content %}
 <link rel="stylesheet" href="{% static 'css/checkout.css' %}">   
 
-<section class="checkout">    
+<section class="checkout"> 
     <div class="form-user">
         <div class="title">
             <h1>Ruins of <br>Versailles</h1>
             <p>Shipping Address</p>
-        </div>        
-        <form action="">   
+        </div> 
+        <div class="alert alert-warning" role="alert" style="margin-bottom: 2rem; display: none;"></div>    
+
+        <form action="">              
             {{ form }}              
-        </form> 
-        <div class="alert alert-warning" role="alert">
-            Note: This is a personal project and this is just a payment simulate, use a sandbox account of paypal.
+        </form>         
+    <div class="submit">
+        <button onclick="required()">Payment</button>
+    </div>  
+    <div class="alert alert-paypal alert-warning" role="alert" style="display: none;">
+        Note: This is a personal project and this is just a payment simulate, use a sandbox account of paypal.
     </div>
-        <div id="paypal-button-container"></div>
+    <div id="paypal-button-container" style="display: none;"></div>
     </div>
     <div class="summery">
         <div class="items"></div>
@@ -30,9 +35,53 @@
 <script src="https://www.paypal.com/sdk/js?client-id=test&currency=USD"></script>
 
 <script>
+    var alertForm = document.querySelector(".alert");   
+
+    var form = document.querySelector("form");
+
+
+
+    function required(){
+        var inputs = form.querySelectorAll("input");
+        var status = true
+
+        for (let i = 0; i < inputs.length; i++) {
+            
+            if(inputs[i].value.length == 0){
+                
+                alertForm.style.display = "block";      
+                alertForm.innerHTML = "Please complete the entire form.";
+                status = false
+                break;
+            }         
+        }
+
+        if(status == true ){
+            displayForm();
+        }
+        
+       
+    }
+
+
+    function displayForm(){
+
+        document.querySelector(".title p").innerHTML = "Payment";
+
+        alertForm.style.display = "none";
+        form.style.display = "none";
+        document.querySelector(".submit").style.display = "none";
+
+        document.querySelector(".alert-paypal").style.display = "block";
+        document.querySelector("#paypal-button-container").style.display = "block";
+
+
+    }
+
+
+
     // Render the PayPal button into #paypal-button-container
     paypal.Buttons({
-
         // Set up the transaction
         createOrder: function(data, actions) {
             return actions.order.create({
@@ -43,13 +92,10 @@
                 }]
             });
         },
-
         // Finalize the transaction
         onApprove: function(data, actions) {
             checkout()
         }
-
-
     }).render('#paypal-button-container');
 </script>
 </script>

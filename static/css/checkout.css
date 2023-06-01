@@ -121,6 +121,24 @@ div#paypal-button-container {
 }
 
 
+.submit{
+    width: 80%;
+    margin: auto;
+    display: flex;
+    justify-content: end;
+}
+
+.submit button{    
+    padding: 0.5rem 2rem;
+    background: #2e3b67;
+    color: white;
+    border: 0;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin: 2rem 0 0;  
+}
+
 
 @media(max-width:1000px){
     .checkout{
