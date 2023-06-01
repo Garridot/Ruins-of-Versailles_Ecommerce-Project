@@ -1,10 +1,10 @@
 .checkout{
     width: 90%;
     margin: auto;
-    height: 100vh;
+    height: 100%;
     display: flex;
     justify-content: space-between;
-    margin: 5rem 0 0;
+    margin: 5rem 0 ;
 }
 
 .form-user{
@@ -69,7 +69,7 @@ form select{
 
 .items {
     width: 90%;
-    margin: 1.5rem auto 5rem;
+    margin: 11rem auto 5rem;
 }
 
 .item {
@@ -108,24 +108,18 @@ form select{
     font-weight: 900;
 }
  
-
-.submit{
+.alert.alert-warning {
     width: 80%;
     margin: auto;
-    display: flex;
-    justify-content: end;
+    margin-top: 2rem;
 }
 
-.submit button{    
-    padding: 0.5rem 2rem;
-    background: #2e3b67;
-    color: white;
-    border: 0;
-    font-size: 0.95rem;
-    text-transform: uppercase;
-    font-weight: 600;
-    margin: 2rem 0 0;  
+div#paypal-button-container {
+    width: 80%;
+    margin: auto;
+    margin-top: 1rem;
 }
+
 
 
 @media(max-width:1000px){

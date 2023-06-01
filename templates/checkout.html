@@ -13,9 +13,10 @@
         <form action="">   
             {{ form }}              
         </form> 
-        <div class="submit">
-            <button onclick="checkout()">Shipping</button>
-        </div>           
+        <div class="alert alert-warning" role="alert">
+            Note: This is a personal project and this is just a payment simulate, use a sandbox account of paypal.
+    </div>
+        <div id="paypal-button-container"></div>
     </div>
     <div class="summery">
         <div class="items"></div>
@@ -23,4 +24,33 @@
 </section>
 
 <script src="{% static 'js/checkout.js' %}"></script>
+
+
+<!-- Include the PayPal JavaScript SDK -->
+<script src="https://www.paypal.com/sdk/js?client-id=test&currency=USD"></script>
+
+<script>
+    // Render the PayPal button into #paypal-button-container
+    paypal.Buttons({
+
+        // Set up the transaction
+        createOrder: function(data, actions) {
+            return actions.order.create({
+                purchase_units: [{
+                    amount: {
+                        value: String(document.querySelector(".total:nth-child(3) span:nth-child(2)").textContent).replace("$ ","")
+                    }
+                }]
+            });
+        },
+
+        // Finalize the transaction
+        onApprove: function(data, actions) {
+            checkout()
+        }
+
+
+    }).render('#paypal-button-container');
+</script>
+</script>
 {% endblock %}

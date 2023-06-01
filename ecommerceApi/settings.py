@@ -50,9 +50,13 @@ INSTALLED_APPS = [
     "rest_framework",
     'corsheaders',
 
+    # Paypal Integrations
+    'paypal.standard.ipn',
+
     # Internal Apps     
     "core",
     "api",
+   
 ]
 
 MIDDLEWARE = [
@@ -155,6 +159,7 @@ MEDIA_URL  =  '/media/'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
 
 
 
