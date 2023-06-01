@@ -48,10 +48,7 @@ INSTALLED_APPS = [
     # External Apps 
     "django",
     "rest_framework",
-    'corsheaders',
-
-    # Paypal Integrations
-    'paypal.standard.ipn',
+    'corsheaders',  
 
     # Internal Apps     
     "core",
