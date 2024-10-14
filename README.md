@@ -1,6 +1,6 @@
 # Ruins Of Versailles | E-commerce Project
 
-API that provides the functionality of an E-commerce about a paintings shop.<br>
+RESTful API for an e-commerce platform of a store, implementing multi-currency functionality to dynamically display product values in Argentine pesos and US dollars, and keeping the product values updated. Transactions are processed using PayPal.<br>
 
 The following endpoints are provided: <br> <br>
 
